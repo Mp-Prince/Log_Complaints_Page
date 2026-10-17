@@ -1,0 +1,265 @@
+/* Theme variables matching the navy & violet palette */
+:root {
+  --lc-bg: #0a0e1f;
+  --lc-bg-2: #0f1530;
+  --lc-surface: rgba(20, 26, 51, 0.85);
+  --lc-surface-2: #121936;
+  --lc-border: rgba(129, 140, 248, 0.18);
+  --lc-border-strong: rgba(129, 140, 248, 0.4);
+  --lc-text: #e6e9f5;
+  --lc-muted: #9aa3c7;
+  --lc-accent: #6366f1;
+  --lc-accent-2: #8b5cf6;
+  --lc-cyan: #00c8f0;
+  --lc-nav-h: 112px; /* navbar height — adjust if the page itself still scrolls */
+}
+
+.lc-page {
+  margin: 0;
+  padding: 1.5rem 1rem 2rem;
+  color: var(--lc-text);
+  background:
+    radial-gradient(900px 500px at 15% -10%, rgba(99, 102, 241, 0.18), transparent 60%),
+    radial-gradient(800px 500px at 100% 0%, rgba(139, 92, 246, 0.14), transparent 55%),
+    linear-gradient(180deg, var(--lc-bg-2), var(--lc-bg));
+}
+
+/* Left column scrolling */
+.lc-page .lc-left {
+  overflow-y: auto;
+  max-height: 150vh;
+  padding-right: 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(129, 140, 248, 0.4) transparent;
+}
+.lc-page .lc-left::-webkit-scrollbar { 
+  width: 8px; 
+}
+.lc-page .lc-left::-webkit-scrollbar-thumb {
+  background: rgba(129, 140, 248, 0.35);
+  border-radius: 8px;
+}
+.lc-page .lc-left::-webkit-scrollbar-thumb:hover { 
+  background: rgba(129, 140, 248, 0.6); 
+}
+
+/* Cards & Chat Surface */
+.lc-page .lc-card,
+.lc-page .copilot-chat {
+  background: var(--lc-surface);
+  color: var(--lc-text);
+  border: 1px solid var(--lc-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  overflow: hidden;
+}
+
+.lc-page .lc-card-header {
+  background: linear-gradient(90deg, rgba(99, 102, 241, 0.18), rgba(139, 92, 246, 0.08) 60%, transparent);
+  border-bottom: 1px solid var(--lc-border);
+  padding: 1rem 1.25rem;
+  position: relative;
+}
+.lc-page .lc-card-header::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--lc-accent), var(--lc-accent-2));
+}
+.lc-page .lc-card-header h4,
+.lc-page .lc-card-header h5 {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  background: linear-gradient(90deg, #fff, #c7d2fe);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.lc-page .lc-card-body { 
+  padding: 1.25rem; 
+}
+
+/* Form Controls */
+.lc-page .form-label {
+  color: var(--lc-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 0.4rem;
+}
+
+.lc-page .lc-input {
+  background-color: var(--lc-surface-2);
+  color: var(--lc-text);
+  border: 1px solid var(--lc-border);
+  border-radius: 10px;
+  padding: 0.6rem 0.85rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.lc-page .lc-input:hover { 
+  border-color: var(--lc-border-strong); 
+}
+.lc-page .lc-input:focus {
+  background-color: #151d40;
+  color: #fff;
+  border-color: var(--lc-accent);
+  box-shadow: 0 0 0 0.2rem rgba(99, 102, 241, 0.25);
+  outline: none;
+}
+.lc-page .lc-input::placeholder { 
+  color: #6b749b; 
+}
+
+.lc-page input[type="date"] { 
+  color-scheme: dark; 
+}
+.lc-page .form-select.lc-input {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23a5b4fc' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+}
+.lc-page .form-select.lc-input option {
+  background: var(--lc-surface-2);
+  color: var(--lc-text);
+}
+
+/* Primary Button */
+.lc-page .lc-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--lc-accent), var(--lc-accent-2));
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.2s ease;
+}
+.lc-page .lc-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(139, 92, 246, 0.45);
+  color: #fff;
+}
+.lc-page .lc-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Chat Messages Box & Bubbles */
+.chat-messages-container {
+  background-color: rgba(15, 26, 47, 0.5);
+  border: 1px solid var(--lc-border);
+  border-radius: 12px;
+}
+
+.chat-msg {
+  max-width: 85%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin-bottom: 8px;
+  word-break: break-word;
+  font-size: 0.9rem;
+}
+
+.chat-msg.user {
+  background: linear-gradient(135deg, var(--lc-accent), var(--lc-accent-2));
+  color: #ffffff;
+  align-self: flex-end;
+  border-bottom-right-radius: 2px;
+}
+
+.chat-msg.ai {
+  background-color: var(--lc-surface-2);
+  border: 1px solid var(--lc-border);
+  color: var(--lc-text);
+  align-self: flex-start;
+  border-bottom-left-radius: 2px;
+}
+
+/* =====================================================================
+   LAYOUT FIX — scrolling left column, nothing overflowing
+   ===================================================================== */
+
+/* 1. Row fits the screen (beats the inline height on the row) */
+.lc-page .container-fluid > .row {
+  height: calc(100vh - var(--lc-nav-h) - 3rem) !important;
+  min-height: 520px;
+}
+
+/* 2. Columns may shrink below their content, so the inner scroll works */
+.lc-page .lc-left,
+.lc-page .lc-right {
+  min-height: 0;
+}
+
+/* 3. Left column is the one scroll container.
+      Cards keep their natural height instead of being squeezed and clipped. */
+.lc-page .lc-left {
+  max-height: none;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.lc-page .lc-left > .lc-card {
+  flex: 0 0 auto !important;   /* no shrinking / stretching */
+  overflow: visible !important; /* beats Bootstrap's overflow-auto on the form card */
+}
+
+/* 4. Bottom card (severity / action / risk / Store Complaint) stays pinned
+      at the bottom of the visible area while the fields scroll underneath */
+.lc-page .lc-left > .lc-card:last-child {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  margin-bottom: 0;
+  background: #101736; /* solid, so fields don't show through while scrolling */
+  box-shadow: 0 -12px 24px rgba(8, 11, 26, 0.7), 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* 5. Chat panel fills the column; messages scroll, input row stays visible */
+.lc-page .copilot-chat {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.lc-page .copilot-chat .card-body {
+  min-height: 0;
+}
+.lc-page .chat-messages-container {
+  min-height: 0;
+  overflow-y: auto;
+}
+.lc-page .copilot-chat .input-group {
+  flex-wrap: nowrap;
+}
+.lc-page .copilot-chat .input-group > .form-control {
+  min-width: 0;
+}
+
+/* ---------- Small screens: stack, let the page scroll ---------- */
+@media (max-width: 767.98px) {
+  .lc-page { 
+    padding: 1rem 0.5rem 1.5rem; 
+  }
+  .lc-page .container-fluid > .row {
+    height: auto !important;
+    min-height: 0;
+  }
+  .lc-page .lc-left { 
+    max-height: none; 
+    overflow: visible;
+    padding-right: 0; 
+  }
+  .lc-page .lc-left > .lc-card:last-child {
+    position: static;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  }
+  .lc-page .copilot-chat {
+    height: 70vh;
+    margin-top: 1rem;
+  }
+}

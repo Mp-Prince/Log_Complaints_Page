@@ -1,0 +1,106 @@
+:root{
+  --bg0:#0b1220;
+  --bg1:#0f1a2f;
+  --card: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.10);
+  --text:#eaf1ff;
+  --muted: rgba(234,241,255,.72);
+  --accent:#7c5cff;
+  --accent2:#2de2e6;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+.navbar{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: linear-gradient(180deg, rgba(9,14,26,.92), rgba(9,14,26,.78));
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.navbar-container{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.navbar-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+  color: var(--text);
+  font-weight: 800;
+  letter-spacing:.2px;
+}
+
+.navbar-logo-mark{
+  width: 30px;
+  height: 30px;
+  display:grid;
+  place-items:center;
+  border-radius: 10px;
+  background: radial-gradient(circle at 30% 20%, rgba(124,92,255,.9), rgba(45,226,230,.55));
+  box-shadow: 0 0 0 1px rgba(255,255,255,.12) inset, 0 10px 25px rgba(124,92,255,.25);
+}
+
+.navbar-logo-text{ font-size: 16px; }
+
+.nav-menu{
+  list-style:none;
+  display:flex;
+  gap: 8px;
+  padding:0;
+  margin:0;
+}
+
+.nav-links{
+  display:inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration:none;
+  color: var(--muted);
+  font-weight: 650;
+  transition: transform .15s ease, background .15s ease, color .15s ease, box-shadow .15s ease;
+  border: 1px solid transparent;
+}
+
+.nav-links:hover{
+  color: var(--text);
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.10);
+  box-shadow: 0 10px 25px rgba(0,0,0,.18);
+  transform: translateY(-1px);
+}
+
+.navbar-toggle{
+  display:none;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.10);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  cursor:pointer;
+}
+
+@media (max-width: 700px){
+  .nav-menu{
+    position:absolute;
+    right: 14px;
+    left: 14px;
+    top: 64px;
+    flex-direction:column;
+    gap:6px;
+    padding: 12px;
+    background: rgba(12,18,33,.92);
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    display:none;
+  }
+  .navbar-toggle{ display:inline-flex; }
+}
