@@ -6,6 +6,8 @@ import { mapResponseToForm } from "./utils";
 import { storeComplaint } from "./components/complaintService";
 import "./LogComplaintForm.css";
 
+const API_URL = process.env.Server_API_URL;
+
 export default function LogComplaint() {
     const [messages, setMessages] = useState([]);
     const [input, setInput] = useState("");
