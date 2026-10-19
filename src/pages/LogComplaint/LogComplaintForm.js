@@ -27,7 +27,7 @@ export default function LogComplaint() {
         setLoading(true);
 
         try {
-            console.log("Sending to server:", { text,API_URL });
+            // console.log("Sending to server:", { text,API_URL });
             let response;
 
             // Case 1: plain text → send to /text endpoint
