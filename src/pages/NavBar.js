@@ -25,6 +25,11 @@ export default function NavBar() {
               Log Complaint
             </Link>
           </li>
+          <li className="nav-item">
+            <Link to="/All_Complaints/ViewStatus" className="nav-links">
+              View Status
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>

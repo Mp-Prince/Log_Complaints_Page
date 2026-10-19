@@ -6,7 +6,7 @@ import { mapResponseToForm } from "./utils";
 import { storeComplaint } from "./components/complaintService";
 import "./LogComplaintForm.css";
 
-const API_URL = process.env.Server_API_URL;
+const API_URL = process.env.REACT_APP_Server_API_URL;
 
 export default function LogComplaint() {
     const [messages, setMessages] = useState([]);
@@ -34,7 +34,7 @@ export default function LogComplaint() {
             if (text && !uploadedFile) {
                 setMessages((prev) => [...prev, { text, sender: "user" }]);
 
-                response = await fetch(`${API_URL}/text`, {
+                response = await fetch(`${API_URL}/api/Deviation/text`, {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(text),
@@ -51,7 +51,7 @@ export default function LogComplaint() {
                 const formDataPayload = new FormData();
                 formDataPayload.append("file", uploadedFile);
 
-                response = await fetch(`${API_URL}/pdf`, {
+                response = await fetch(`${API_URL}/api/Deviation/pdf`, {
                     method: "POST",
                     body: formDataPayload,
                 });
